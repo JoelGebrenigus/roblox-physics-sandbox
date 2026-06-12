@@ -1,0 +1,42 @@
+{
+  "name": "RobloxPhysicsSandbox",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "Systems": {
+        "$path": "src/server/Systems"
+      },
+      "ServerMain": {
+        "$path": "src/server/ServerMain.server.lua"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Controllers": {
+          "$path": "src/client/Controllers"
+        },
+        "ClientMain": {
+          "$path": "src/client/ClientMain.client.lua"
+        }
+      }
+    },
+    "StarterGui": {
+      "TelekinesisGui": {
+        "$path": "src/ui"
+      }
+    },
+    "Workspace": {
+      "PhysicsObjects": {
+        "$className": "Folder"
+      },
+      "TestArena": {
+        "$className": "Folder"
+      }
+    }
+  }
+}
