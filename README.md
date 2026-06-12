@@ -20,15 +20,45 @@ grab, move, rotate, charge, throw, and drop rigid physics assemblies without set
 
 1. Install [Rojo](https://rojo.space/docs/).
 2. Install the Rojo Studio plugin.
-3. From this directory, run:
+3. Open a terminal in the repository's root folder. This is the folder containing both
+   `default.project.json` and this `README.md`.
+
+   On Windows, open the repository in File Explorer, click the address bar, type `powershell`, and
+   press Enter. Alternatively, open PowerShell normally and change to the repository folder:
 
    ```powershell
-   rojo serve
+   cd "C:\path\to\roblox-physics-sandbox"
    ```
 
-4. Open a blank Roblox Studio place.
-5. Open the Rojo plugin, connect to `localhost:34872`, and sync the project.
-6. Press Play.
+4. Confirm that Rojo is installed and available:
+
+   ```powershell
+   rojo --version
+   ```
+
+   If PowerShell reports that `rojo` is not recognized, close and reopen the terminal after
+   installing Rojo, then try again.
+
+5. Start the Rojo project server:
+
+   ```powershell
+   rojo serve default.project.json
+   ```
+
+   Keep this terminal open while using Studio. Rojo should report that it is serving the project,
+   normally at `localhost:34872`. The command does not launch Roblox Studio; it makes the files in
+   this repository available to the Studio plugin.
+
+6. Open a blank Roblox Studio place.
+7. Open the Rojo plugin from Studio's **Plugins** tab. Connect to `localhost:34872`, inspect the
+   proposed changes, and click the plugin's sync/connect button.
+8. Confirm that Studio now contains folders such as `ReplicatedStorage.Shared`,
+   `ServerScriptService.Systems`, and `StarterPlayer.StarterPlayerScripts.Controllers`.
+9. Press Play.
+
+When you edit a source file while the server and plugin remain connected, Rojo syncs the change
+into Studio. Treat the repository files as the source of truth; changes made only inside Studio may
+be overwritten by a later sync.
 
 The server creates the three remote events at runtime. While running in Studio, it also populates
 `Workspace.PhysicsObjects` and `Workspace.TestArena` with labeled test props and a spawn location.
